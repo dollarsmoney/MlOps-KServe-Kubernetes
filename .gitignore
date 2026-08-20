@@ -1,0 +1,65 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ---- DVC-tracked data ----
+# DVC stores the *content* in S3 and leaves a small .dvc pointer in git.
+# The actual data files must never be committed to git.
+/data/raw/*
+/data/processed/*
+/models/*
+!/data/raw/.gitkeep
+!/data/processed/.gitkeep
+!/models/.gitkeep
+!*.dvc
+
+# ---- DVC internals ----
+/.dvc/cache
+/.dvc/tmp
+/.dvc/config.local
+
+# ---- MLflow (local runs only; the real backend is Postgres + S3) ----
+mlruns/
+mlartifacts/
+mlflow.db
+
+# ---- Secrets & environment ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+kubeconfig
+secrets.yaml
+!helm/**/secret.yaml
+
+# ---- Terraform ----
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+.terraform.lock.hcl
+crash.log
+
+# ---- Helm ----
+helm/**/charts/
+helm/**/*.tgz
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

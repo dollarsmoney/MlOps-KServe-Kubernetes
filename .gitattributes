@@ -1,0 +1,27 @@
+# Normalize to LF in the repository. Development happens on Windows but everything
+# runs on Linux (containers, CI, the cluster) — a shell script or Dockerfile checked
+# in with CRLF fails there with an opaque "\r: command not found".
+* text=auto eol=lf
+
+# Files that must be LF regardless of local git config
+*.sh      text eol=lf
+*.bash    text eol=lf
+Makefile  text eol=lf
+Dockerfile* text eol=lf
+*.yaml    text eol=lf
+*.yml     text eol=lf
+*.py      text eol=lf
+*.tf      text eol=lf
+
+# Binary — never touch
+*.png     binary
+*.jpg     binary
+*.parquet binary
+*.pt      binary
+*.pth     binary
+*.pkl     binary
+*.onnx    binary
+
+# Generated/lock files: collapse diff noise in review
+dvc.lock            linguist-generated=true
+.terraform.lock.hcl linguist-generated=true
