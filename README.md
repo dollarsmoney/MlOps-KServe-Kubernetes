@@ -1,4 +1,4 @@
-# Short-Video Recommendation Platform — MLOps Reference Build
+# Tiktok-Videos Recommendation Service — MLOps Reference Build
 
 A production-style, end-to-end recommendation system: it ingests user interaction events,
 versions the resulting datasets, trains a multi-task ranking model, gates it on quality,
